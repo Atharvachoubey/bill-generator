@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Professional Fee Bill</title>
+
+<style>
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 210mm;
+    height: 297mm;
+    background: #ffffff;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    color: #111111;
+}
+
+.page {
+    position: relative;
+
+    width: 210mm;
+    height: 297mm;
+
+    margin: 0;
+    padding: 0;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 210mm;
+    height: 50.5mm;
+
+    text-align: center;
+
+    border-bottom: 1px solid #aa2222;
+}
+
+
+.shree {
+    position: absolute;
+
+    top: 11.5mm;
+    left: 0;
+
+    width: 210mm;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+.company {
+    position: absolute;
+
+    top: 17.5mm;
+    left: 0;
+
+    width: 210mm;
+
+    font-family: cursive;
+
+    font-size: 25px;
+
+    color: #aa3333;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+
+.qual {
+    position: absolute;
+
+    top: 27.5mm;
+    left: 0;
+
+    width: 210mm;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+.office {
+    position: absolute;
+
+    top: 33.5mm;
+    left: 0;
+
+    width: 210mm;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+
+.contact {
+    position: absolute;
+
+    top: 39.5mm;
+    left: 0;
+
+    width: 210mm;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+
+.contact.email {
+    top: 45mm;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+
+.content {
+    position: absolute;
+
+    top: 71mm;
+    left: 26.5mm;
+
+    width: 158.5mm;
+}
+
+
+/* TO */
+
+.to {
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.to b {
+    font-weight: bold;
+}
+
+
+/* SUBJECT */
+
+.subject {
+    margin-top: 8mm;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* DESCRIPTION */
+
+.please {
+    margin-top: 9mm;
+
+    width: 160mm;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   FEES
+   ===================================================== */
+
+.fee-table {
+
+    margin-top: 9mm;
+
+    width: 130mm;
+
+    border-collapse: collapse;
+
+    border-spacing: 0;
+
+    table-layout: fixed;
+
+    font-size: 14px;
+}
+
+
+.fee-table td {
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    vertical-align: top;
+}
+
+
+.fee-label-column {
+
+    width: 90mm;
+
+    padding-right: 15mm !important;
+}
+
+
+.fee-amount-column {
+
+    width: 40mm;
+}
+
+
+.fee-label {
+
+    text-decoration: underline;
+
+    font-weight: bold;
+}
+
+
+.total-label {
+
+    margin-top: 3mm;
+
+    font-weight: bold;
+}
+
+
+.amount {
+
+    text-align: left;
+}
+
+
+.total-amount {
+
+    margin-top: 3mm;
+
+    font-weight: bold;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   AMOUNT IN WORDS
+   ===================================================== */
+
+.words {
+
+    margin-top: 9mm;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   DATE
+   ===================================================== */
+
+.date {
+
+    margin-top: 6mm;
+
+    font-size: 14px;
+}
+
+
+/* PLACE */
+
+.place {
+
+    margin-top: 1mm;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   SIGNATURE
+   ===================================================== */
+
+.signature-name {
+
+    position: absolute;
+
+    top: 187mm;
+    left: 26.5mm;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   BANK DETAILS
+   ===================================================== */
+
+.bank {
+
+    position: absolute;
+
+    top: 197.5mm;
+    left: 26.5mm;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 210mm;
+    height: 15.5mm;
+
+    border-top: 1px solid #111111;
+
+    text-align: center;
+
+    padding-top: 3mm;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+```
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="shree">
+        || श्री जी ||
+    </div>
+
+    <div class="company">
+        Er. Shreyansh Joshi Consultants
+    </div>
+
+    <div class="qual">
+        B.E. (Civil), AIE, AIV
+    </div>
+
+    <div class="office">
+        Chartered Engineer, Approved Valuer, Structural Engineer, Technical Auditor
+    </div>
+
+    <div class="contact">
+        Office: 59, Preconco Colony, Annapurna Road, Indore (M.P.) 452009
+    </div>
+
+    <div class="contact email">
+        Mobile: +91-9425053091, +91-9179224382, Email: shreyanshjoshiconsultants@gmail.com
+    </div>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="content">
+
+    <div class="to">
+        To,<br>
+        <b>{{ name }}</b><br>
+        <span>{{ address }}</span>
+    </div>
+
+
+    <div class="subject">
+        Sub: Professional Fee Bill
+    </div>
+
+
+    <div class="please">
+        Please find the enclosed bill of {{ description }}.
+    </div>
+
+
+    <table class="fee-table">
+
+        <tr>
+
+            <td class="fee-label-column">
+
+                <div class="fee-label">
+                    Fees:
+                </div>
+
+                <div class="total-label">
+                    Total:
+                </div>
+
+            </td>
+
+
+            <td class="fee-amount-column">
+
+                <div class="amount">
+                    Rs. {{ fees }}.00
+                </div>
+
+                <div class="total-amount">
+                    Rs. {{ fees }}.00
+                </div>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <div class="words">
+        (Rs. {{ fees }} Only)
+    </div>
+
+
+    <div class="date">
+        Date: {{ date }}
+    </div>
+
+
+    <div class="place">
+        Place: {{ place }}
+    </div>
+
+</div>
+
+
+<!-- SIGNATURE -->
+
+<div class="signature-name">
+    Er. Shreyansh Pradeep Joshi
+</div>
+
+
+<!-- BANK -->
+
+<div class="bank">
+
+    Bank Details:<br>
+    Account Name: Shreyansh Joshi<br>
+    A/c. No.: 63034604541<br>
+    Bank Name: State Bank of India<br>
+    Branch: Bank Colony, Indore (M.P.)<br>
+    IFSC Code: SBIN0030458<br>
+    BHIM: 9425053091@upi<br>
+    PAN: AVUPJ3233H
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    Deals in: Topographical Surveying, Building Planning,
+    Structural Design, Map Approval, Estimate and Valuation
+
+</div>
+```
+
+</div>
+
+</body>
+
+</html>

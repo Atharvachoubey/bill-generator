@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Professional Fee Bill</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #e9edf5,
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    #e5eaf3,
+                    transparent 35%
+                ),
+                #f4f6f9;
+
+            color: #20242a;
+
+            min-height: 100vh;
+        }
+
+
+        /* PAGE */
+
+        .page-wrapper {
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 45px 20px;
+        }
+
+
+        /* FORM CARD */
+
+        .form-card {
+            width: 100%;
+
+            max-width: 650px;
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            border: 1px solid #e8ebef;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.08),
+                0 5px 15px rgba(0, 0, 0, 0.04);
+        }
+
+
+        /* HEADER */
+
+        .form-header {
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding: 28px 32px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171717,
+                    #2d2d2d
+                );
+
+            color: white;
+        }
+
+
+        .header-icon {
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: white;
+
+            color: #171717;
+
+            border-radius: 13px;
+
+            font-size: 25px;
+
+            font-weight: bold;
+        }
+
+
+        .form-header h1 {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+
+        .form-header p {
+            font-size: 13px;
+
+            color: #cfcfcf;
+        }
+
+
+        /* FORM */
+
+        form {
+            padding: 30px 32px 28px;
+        }
+
+
+        /* SECTION */
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+
+        .section-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: #25292e;
+
+            margin-bottom: 18px;
+
+            padding-bottom: 10px;
+
+            border-bottom: 1px solid #edf0f3;
+        }
+
+
+        .section-title span {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 27px;
+
+            height: 27px;
+
+            border-radius: 8px;
+
+            background: #f0f1f3;
+
+            color: #333;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        /* FORM GROUP */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #363b42;
+        }
+
+
+        /* INPUTS */
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+
+            border: 1px solid #d9dde3;
+
+            background: #fafbfc;
+
+            color: #20242a;
+
+            border-radius: 9px;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 14px;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        input,
+        select {
+            height: 46px;
+
+            padding: 0 13px;
+        }
+
+
+        textarea {
+            min-height: 92px;
+
+            padding: 12px 13px;
+
+            resize: vertical;
+
+            line-height: 1.5;
+        }
+
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #a2a8b0;
+        }
+
+
+        input:hover,
+        textarea:hover,
+        select:hover {
+            border-color: #b8bdc5;
+        }
+
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+
+            background: #ffffff;
+
+            border-color: #555;
+
+            box-shadow:
+                0 0 0 3px rgba(0, 0, 0, 0.06);
+        }
+
+
+        /* HELP TEXT */
+
+        small {
+            display: block;
+
+            margin-top: 7px;
+
+            color: #8a9098;
+
+            font-size: 11px;
+
+            line-height: 1.4;
+        }
+
+
+        /* TWO COLUMNS */
+
+        .two-column {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 16px;
+        }
+
+
+        /* RUPEE INPUT */
+
+        .input-with-symbol {
+            position: relative;
+        }
+
+
+        .input-with-symbol span {
+            position: absolute;
+
+            left: 13px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #555;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            z-index: 2;
+        }
+
+
+        .input-with-symbol input {
+            padding-left: 32px;
+        }
+
+
+        /* MANUAL PLACE */
+
+        .manual-box {
+            display: none;
+        }
+
+
+        /* BUTTON */
+
+        .generate-btn {
+            width: 100%;
+
+            height: 50px;
+
+            margin-top: 5px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171717,
+                    #303030
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            transition: 0.2s;
+        }
+
+
+        .generate-btn:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #252525,
+                    #3b3b3b
+                );
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+
+        .btn-icon {
+            font-size: 18px;
+        }
+
+
+        /* NOTE */
+
+        .form-note {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 15px;
+
+            color: #8a9098;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+
+        .form-note span {
+            color: #555;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .page-wrapper {
+                padding: 20px 12px;
+
+                align-items: flex-start;
+            }
+
+
+            .form-card {
+                border-radius: 14px;
+            }
+
+
+            .form-header {
+                padding: 23px 20px;
+            }
+
+
+            .form-header h1 {
+                font-size: 20px;
+            }
+
+
+            form {
+                padding: 24px 20px;
+            }
+
+
+            .two-column {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page-wrapper">
+
+
+    <div class="form-card">
+
+
+        <!-- HEADER -->
+
+        <div class="form-header">
+
+            <div class="header-icon">
+                ₹
+            </div>
+
+
+            <div>
+
+                <h1>
+                    Professional Fee Bill
+                </h1>
+
+                <p>
+                    Create and generate your professional fee bill
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form
+            method="POST"
+            action="{% url 'generate_bill' %}"
+        >
+
+            {% csrf_token %}
+
+
+            <!-- CUSTOMER DETAILS -->
+
+            <div class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        01
+                    </span>
+
+                    Customer Details
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Customer Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="e.g. Hardik Ji"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Customer Address
+                    </label>
+
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter complete recipient address"
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- BILL DETAILS -->
+
+            <div class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        02
+                    </span>
+
+                    Bill Details
+
+                </div>
+
+
+                <div class="form-group">
+
+
+                    <label for="description">
+                        Bill Description
+                    </label>
+
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        placeholder="e.g. Measurement of Godown situated at Rau, Indore"
+                        required
+                    ></textarea>
+
+
+                    <small>
+                        This text will appear in the bill description.
+                    </small>
+
+                </div>
+
+
+                <div class="two-column">
+
+
+                    <div class="form-group">
+
+
+                        <label for="fees">
+                            Professional Fees
+                        </label>
+
+
+                        <div class="input-with-symbol">
+
+                            <span>
+                                ₹
+                            </span>
+
+
+                            <input
+                                type="number"
+                                id="fees"
+                                name="fees"
+                                min="0"
+                                step="1"
+                                placeholder="9000"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+
+                        <label for="date">
+                            Bill Date
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        03
+                    </span>
+
+                    Bill Location
+
+                </div>
+
+
+                <div class="form-group">
+
+
+                    <label for="placeType">
+                        Place
+                    </label>
+
+
+                    <select
+                        id="placeType"
+                        name="place_type"
+                        onchange="togglePlace()"
+                    >
+
+                        <option value="indore">
+                            Indore
+                        </option>
+
+
+                        <option value="manual">
+                            Write manually
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    id="manualPlaceBox"
+                    class="form-group manual-box"
+                >
+
+                    <label for="manualPlace">
+                        Enter Place
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="manualPlace"
+                        name="manual_place"
+                        placeholder="e.g. Bhopal"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="generate-btn"
+            >
+
+                <span class="btn-icon">
+                    ↓
+                </span>
+
+                Generate Bill PDF
+
+            </button>
+
+
+            <div class="form-note">
+
+                <span>
+                    ✓
+                </span>
+
+                Your information will be used only to generate the bill PDF.
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+function togglePlace() {
+
+    const placeType =
+        document.getElementById("placeType").value;
+
+
+    const manualBox =
+        document.getElementById("manualPlaceBox");
+
+
+    const manualInput =
+        document.getElementById("manualPlace");
+
+
+    if (placeType === "manual") {
+
+        manualBox.style.display = "block";
+
+        manualInput.required = true;
+
+    }
+
+    else {
+
+        manualBox.style.display = "none";
+
+        manualInput.required = false;
+
+        manualInput.value = "";
+
+    }
+
+}
+
+
+/* Automatically select today's date */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const dateInput =
+            document.getElementById("date");
+
+
+        if (!dateInput.value) {
+
+            const today =
+                new Date();
+
+
+            const year =
+                today.getFullYear();
+
+
+            const month =
+                String(
+                    today.getMonth() + 1
+                ).padStart(2, "0");
+
+
+            const day =
+                String(
+                    today.getDate()
+                ).padStart(2, "0");
+
+
+            dateInput.value =
+                `${year}-${month}-${day}`;
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
